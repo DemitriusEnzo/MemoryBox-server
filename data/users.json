@@ -1,0 +1,37 @@
+[
+  {
+    "id": "_b6f1om6zb",
+    "username": "newuser",
+    "password": "$2b$10$70D/R2GopOBgXK0cK62XLeOhYFKa5efJn4ILIENbmtxh4/NhM644m"
+  },
+  {
+    "id": "_zqul2rb5x",
+    "username": "newusertwo",
+    "password": "$2b$10$NbJKe5.2xmlFNIP2kTvPkeN82lwdrd9h5/a4USpPuNaaArrbgIKvK"
+  },
+  {
+    "id": "_p063lqbll",
+    "username": "testuser",
+    "password": "$2b$10$0q5mUsEZBzaOxqvVfU0KEeUpHP03IWj4xPGTuGEeKuQFkvYXIrm6u"
+  },
+  {
+    "id": "_toqa0qhd0",
+    "username": "EnzoDemitrius",
+    "password": "$2b$10$S2CrsQUvD2PbYRs708CiE.T4MRyqkgCSnjWZy1siVDIki7jwRK2am"
+  },
+  {
+    "id": "_366h38k33",
+    "username": "contateste",
+    "password": "$2b$10$76MVZWLrgi3tTwtMNNw7WuX/gmsuvymyjTBf1zAMGRRaqffNAsXBu"
+  },
+  {
+    "id": "_15tnktvml",
+    "username": "marcos",
+    "password": "$2b$10$KI5Fd0TUEfUWk0q/v.Bp0OjeviisQ4fgroGuj.pAVfWf4Md4256vG"
+  },
+  {
+    "id": "_agf2oa6lv",
+    "username": "oi",
+    "password": "$2b$10$bh9ZKLLko1uO8AKVzRsrROZf6mvTryYamJGzuOwwS6E2tqlD7oy0."
+  }
+]
