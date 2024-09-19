@@ -17,7 +17,7 @@
   {
     "id": "_toqa0qhd0",
     "username": "EnzoDemitrius",
-    "password": "$2b$10$S2CrsQUvD2PbYRs708CiE.T4MRyqkgCSnjWZy1siVDIki7jwRK2am"
+    "password": "$2b$10$6QrytravXwHNn7HpCVrAbOfM5f9JS02.Zc0SP8AEQ8B8J4ifGoEdS"
   },
   {
     "id": "_366h38k33",
@@ -25,13 +25,18 @@
     "password": "$2b$10$76MVZWLrgi3tTwtMNNw7WuX/gmsuvymyjTBf1zAMGRRaqffNAsXBu"
   },
   {
-    "id": "_15tnktvml",
-    "username": "marcos",
-    "password": "$2b$10$KI5Fd0TUEfUWk0q/v.Bp0OjeviisQ4fgroGuj.pAVfWf4Md4256vG"
-  },
-  {
     "id": "_agf2oa6lv",
     "username": "oi",
     "password": "$2b$10$bh9ZKLLko1uO8AKVzRsrROZf6mvTryYamJGzuOwwS6E2tqlD7oy0."
+  },
+  {
+    "id": "_bzk7tuzas",
+    "username": "oiteste",
+    "password": "$2b$10$gmiE5dzpUf7URBjDx/vmDOiCDbnh2wgX/vsi6R.QYqfVnbR33oK32"
+  },
+  {
+    "id": "_0nnfdfbn8",
+    "username": "oitestee",
+    "password": "$2b$10$7bfFTI2MgxzEhobe4vWUVuxfBizSC9T2Np1i4OBcyU7ZyB8R5LUHC"
   }
 ]
