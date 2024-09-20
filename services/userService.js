@@ -34,14 +34,14 @@ const updateUser = async (username, newUsername, newPassword) => {
 const changePassword = async (username, newPassword) => {
   const users = await readUsers();
   const userIndex = users.findIndex(user => user.username === username);
-  
+
   if (userIndex === -1) {
     throw new Error('User not found');
   }
 
   const hashedPassword = await bcrypt.hash(newPassword, 10);
   users[userIndex].password = hashedPassword;
-  
+
   await writeUsers(users);
   return users[userIndex];
 };

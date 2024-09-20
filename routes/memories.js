@@ -1,34 +1,19 @@
 const express = require('express');
-const fs = require('fs').promises;
-const path = require('path');
 const jwt = require('jsonwebtoken');
+const {
+  getUserMemories,
+  createMemory,
+  updateMemory,
+  deleteMemory
+} = require('../controllers/memoryController');
 
 const router = express.Router();
-const memoriesFilePath = path.join(__dirname, '../data/memories.json');
 const secretKey = process.env.SECRET_KEY || 'your_secret_key';
-
-const readMemories = async () => {
-  try {
-    const data = await fs.readFile(memoriesFilePath, 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    console.error('Error reading memories file:', error);
-    return [];
-  }
-};
-
-const writeMemories = async (memories) => {
-  try {
-    await fs.writeFile(memoriesFilePath, JSON.stringify(memories, null, 2), 'utf8');
-  } catch (error) {
-    console.error('Error writing to memories file:', error);
-  }
-};
 
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
-  if (token == null) return res.sendStatus(401);
+  if (!token) return res.sendStatus(401);
 
   jwt.verify(token, secretKey, (err, user) => {
     if (err) return res.sendStatus(403);
@@ -38,59 +23,44 @@ const authenticateToken = (req, res, next) => {
 };
 
 router.get('/', authenticateToken, async (req, res) => {
-  const username = req.query.username;
-  const memories = await readMemories();
-  const userMemories = memories.filter(memory => memory.username === username);
-  res.json(userMemories);
+  const { username } = req.query;
+  try {
+    const userMemories = await getUserMemories(username);
+    res.json(userMemories);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching memories' });
+  }
 });
 
 router.post('/', authenticateToken, async (req, res) => {
   const { username, title, date, icon } = req.body;
-  const memories = await readMemories();
-  const newMemory = {
-    id: Date.now().toString(),
-    username,
-    title,
-    date,
-    icon
-  };
-  memories.push(newMemory);
-  await writeMemories(memories);
-  res.status(201).json(newMemory);
+  try {
+    const newMemory = await createMemory({ username, title, date, icon });
+    res.status(201).json(newMemory);
+  } catch (error) {
+    res.status(500).json({ message: 'Error creating memory' });
+  }
 });
 
 router.put('/:id', authenticateToken, async (req, res) => {
   const memoryId = req.params.id;
   const { title, date, icon } = req.body;
-  const memories = await readMemories();
-  const memoryIndex = memories.findIndex(memory => memory.id === memoryId);
-
-  if (memoryIndex === -1) {
-    console.log('Memory not found with id:', memoryId);
-    return res.status(404).json({ message: 'Memory not found' });
+  try {
+    const updatedMemory = await updateMemory(memoryId, { title, date, icon });
+    res.json(updatedMemory);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
   }
-
-  const updatedMemory = { ...memories[memoryIndex], title, date, icon };
-  memories[memoryIndex] = updatedMemory;
-  await writeMemories(memories);
-  console.log('Memory updated successfully:', updatedMemory);
-  res.json(updatedMemory);
 });
 
 router.delete('/:id', authenticateToken, async (req, res) => {
   const memoryId = req.params.id;
-  const memories = await readMemories();
-  const memoryIndex = memories.findIndex(memory => memory.id === memoryId);
-
-  if (memoryIndex === -1) {
-    console.log('Memory not found with id:', memoryId);
-    return res.status(404).json({ message: 'Memory not found' });
+  try {
+    await deleteMemory(memoryId);
+    res.status(204).end();
+  } catch (error) {
+    res.status(404).json({ message: error.message });
   }
-
-  memories.splice(memoryIndex, 1);
-  await writeMemories(memories);
-  console.log('Memory deleted successfully with id:', memoryId);
-  res.status(204).end();
 });
 
 module.exports = router;
