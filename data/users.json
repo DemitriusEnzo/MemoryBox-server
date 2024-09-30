@@ -17,7 +17,7 @@
   {
     "id": "_toqa0qhd0",
     "username": "EnzoDemitrius",
-    "password": "$2b$10$HsyFVJn5CdXqewU1MfNyHOz1zqB1H8Gpmdzu3C6fvB34YCtriU.fy"
+    "password": "$2b$10$3snt3hpPMGmYRfBKg.x91OFiQnJn.fIzULx2ay3qKQI/YLjcQtgK2"
   },
   {
     "id": "_366h38k33",
@@ -43,5 +43,10 @@
     "id": "_etd8u9ltz",
     "username": "rafa",
     "password": "$2b$10$hZxDQXvohFbP046TxB.pW.0lWal9Zl/icTkUF2XDI9yXXIyxfdgq."
+  },
+  {
+    "id": "_zg1q66eek",
+    "username": "testeum",
+    "password": "$2b$10$2kEHP6FRjGJPOy0IKKDade6IC.cZwJxK3/fnJe9TbpYd3kLp3H8Mi"
   }
 ]

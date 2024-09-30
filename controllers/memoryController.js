@@ -30,7 +30,9 @@ const deleteMemory = async (memoryId) => {
   const memories = await readMemories();
   const memoryIndex = memories.findIndex(memory => memory.id === memoryId);
 
-  if (memoryIndex === -1) throw new Error('Memory not found');
+  if (memoryIndex === -1) {
+    throw new Error('Memory not found');
+  }
 
   memories.splice(memoryIndex, 1);
   await writeMemories(memories);

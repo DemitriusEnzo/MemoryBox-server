@@ -43,7 +43,7 @@ const changePassword = async (username, newPassword) => {
   users[userIndex].password = hashedPassword;
 
   await writeUsers(users);
-  return users[userIndex];
+  return { success: true, user: { username: users[userIndex].username } };
 };
 
 module.exports = { getUserProfile, updateUser, changePassword };

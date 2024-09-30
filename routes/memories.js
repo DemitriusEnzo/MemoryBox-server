@@ -45,16 +45,19 @@ router.post('/', authenticateToken, async (req, res) => {
 router.put('/:id', authenticateToken, async (req, res) => {
   const memoryId = req.params.id;
   const { title, date, icon } = req.body;
+
   try {
     const updatedMemory = await updateMemory(memoryId, { title, date, icon });
     res.json(updatedMemory);
   } catch (error) {
+    console.error('Erro ao atualizar memória:', error.message);
     res.status(404).json({ message: error.message });
   }
 });
 
 router.delete('/:id', authenticateToken, async (req, res) => {
   const memoryId = req.params.id;
+
   try {
     await deleteMemory(memoryId);
     res.status(204).end();
