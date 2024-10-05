@@ -70,22 +70,5 @@ PATCH /api/profile/:username/password
 Atualiza a senha do usuário.
 Body: { "newPassword": "string" }
 
-# Contribuição
-Faça um fork do projeto.
-
-Crie uma branch para suas alterações:
-git checkout -b feature/MinhaNovaFuncionalidade
-
-Commit suas alterações:
-git commit -m "Adicionando nova funcionalidade"
-
-Push para a branch:
-git push origin feature/MinhaNovaFuncionalidade
-
-Abra um Pull Request.
-
-# Licença
-Este projeto está licenciado sob a MIT License. Veja o arquivo LICENSE para mais detalhes.
-
 # Contato
 Para dúvidas ou sugestões, entre em contato através do email: enzodemitrius10@gmail.com.
