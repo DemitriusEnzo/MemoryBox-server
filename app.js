@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: 'https://memory-box-rho.vercel.app',
+  origin: process.env.CLIENT_URL | 'http://localhost:3000',
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS', 'PUT'],
 }));
 
