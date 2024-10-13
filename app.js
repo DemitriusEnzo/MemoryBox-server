@@ -8,7 +8,10 @@ const profileRoutes = require('./routes/profile');
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://memory-box-rho.vercel.app',
+  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS', 'PUT'],
+}));
 
 app.use(express.json());
 
