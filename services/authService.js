@@ -7,13 +7,19 @@ const secretKey = process.env.SECRET_KEY || 'your_secret_key';
 
 const registerUser = async (req, res) => {
   const { username, password } = req.body;
+  console.log('Registering user:', username);
+  
   if (!username || !password) {
+    console.error('Username or password is missing');
     return res.status(400).json({ success: false, message: 'Username and password are required' });
   }
 
   try {
     const users = await readUsers();
+    console.log('Current users:', users);
+    
     if (users.some(user => user.username === username)) {
+      console.error('Username already exists:', username);
       return res.status(400).json({ success: false, message: 'Username already exists' });
     }
 
@@ -24,6 +30,7 @@ const registerUser = async (req, res) => {
 
     res.status(201).json({ success: true, message: 'User registered successfully', user: { id: newUser.id, username: newUser.username } });
   } catch (err) {
+    console.error('Error while registering user:', err);
     res.status(500).json({ success: false, message: 'Error registering user' });
   }
 };
