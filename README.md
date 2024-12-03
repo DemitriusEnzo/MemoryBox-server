@@ -1,6 +1,6 @@
 # Demitrius Box Server
 # Descrição
-O Demitrius Box Server é uma aplicação backend desenvolvida em Node.js utilizando o framework Express. A aplicação permite que usuários se registrem, façam login, gerenciem memórias pessoais e atualizem seus perfis. A comunicação entre o cliente e o servidor é feita através de APIs RESTful.
+O Memory Box Server é uma aplicação backend desenvolvida em Node.js utilizando o framework Express. A aplicação permite que usuários se registrem, façam login, gerenciem memórias pessoais e atualizem seus perfis. A comunicação entre o cliente e o servidor é feita através de APIs RESTful.
 
 # Tecnologias Utilizadas
 Node.js: Ambiente de execução para JavaScript.
